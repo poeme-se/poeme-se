@@ -1,0 +1,53 @@
+{% extends 'poemese/base.html' %}
+{% load staticfiles %}
+{% load material_form %}
+{% block content %}
+{% include 'poemese/nav.html' %}
+<div style="height:10%"></div>
+<div class="row">
+  <div class="col s12 m4 l3 push-s1 push-m1 push-l1" style="background:#827c7c">
+    <div class="row center">
+      <img class="profile-img-user" style="margin-top: 30px" src="{{ request.user.profile_image.url }}"/>
+    </div>
+    <div class="row" style="color:white">
+      <h3 class="center" style="font-family: roboto; font-size: 25px">{{ request.user.nome_completo | capfirst }}</h3>
+      <form id="update_image_form" method="POST" enctype="multipart/form-data">
+          {% csrf_token %}
+          {% form form=update_image_form %}
+            {% part form.profile_image prefix %}imagem{% endpart %}
+          {% endform %}
+          <input type="submit" class="btn #607d8b blue-grey" name="submit" value="Update"/>
+      </form>
+    </div>
+  </div>
+  <div class="col l1 push-s1 push-m1 push-l1">
+    <p class="center" style="color:#827c7c; font-weight:bold;">C</p>
+    <p class="center" style="color:#827c7c; font-weight:bold;">O</p>
+    <p class="center" style="color:#827c7c; font-weight:bold;">N</p>
+    <p class="center" style="color:#827c7c; font-weight:bold;">F</p>
+    <p class="center" style="color:#827c7c; font-weight:bold;">I</p>
+    <p class="center" style="color:#827c7c; font-weight:bold;">G</p>
+    <p class="center" style="color:#827c7c; font-weight:bold;">U</p>
+    <p class="center" style="color:#827c7c; font-weight:bold;">R</p>
+    <p class="center" style="color:#827c7c; font-weight:bold;">A</p>
+    <p class="center" style="color:#827c7c; font-weight:bold;">Ç</p>
+    <p class="center" style="color:#827c7c; font-weight:bold;">Õ</p>
+    <p class="center" style="color:#827c7c; font-weight:bold;">E</p>
+    <p class="center" style="color:#827c7c; font-weight:bold;">S</p>
+  </div>
+  <div class="col s6 m6 l6 white-text valign-wrapper push-s1 push-m1 push-l1" id="config-form-container" style="background:#827c7c">
+    <form method="POST" id="config-form">
+      {% csrf_token %}
+      {{ formEdit.as_p }}
+      <div class="row">
+        <div class="col s4">
+          <button type="submit" id="confirm-edit-profile" class="btn">ALTERAR</button>
+        </div>
+        <div class="col s4">
+          <button id="cancel-edit-profile" class="btn">CANCELAR</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

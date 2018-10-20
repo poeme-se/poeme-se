@@ -1,0 +1,304 @@
+@font-face {
+    font-family: king;
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/the_King__26_Queen_font.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Pinyon;
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/PinyonScript-Regular.ttf') format('truetype');
+}
+
+body, html{
+  background-color: #DBD9D9;
+}
+
+.messages{
+  width: 300px;
+  height: 30px;
+  border-radius: 5px;
+  color: white;
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.messages li{
+  margin-left: 20px;
+}
+
+#container-login, #container-cadastro{
+  margin-left: 20%;
+  width: 60%;
+  margin-top: 5%;
+}
+
+#container-top-login{
+  width: 100%;
+  text-align: center;
+  font-family: Pinyon;
+  font-size: 40px;
+  font-weight: bolder;
+}
+
+#cadastro{
+  margin-left: 65%;
+}
+
+#cadastrar_botao{
+  margin-bottom: 5%;
+}
+
+#plano_animado{
+  position: relative;
+  min-width: 100%;
+  display: block;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+  height: 100%;
+  margin-bottom: 20% !important;
+}
+
+#plano_animado canvas, .apresentation_message, .container-login-cadastro{
+  position: absolute;
+}
+
+#plano_animado main{
+  height: 800px;
+}
+
+#id_imagem_perfil_container .btn {
+  background-color: black !important;
+}
+
+#success-msg-congratulations{
+  font-family: pinyon;
+  font-size: 45px;
+  font-weight: bolder;
+  text-align: center;
+  color: rgb(132, 134, 138);
+}
+
+#success-msg{
+  font-family: roboto;
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+}
+
+.nav-wrapper{
+  position: fixed;
+  background-color: #F4F4F4;
+}
+
+.form_submit_initial{
+  width: 100%;
+  margin-top: 5%;
+}
+
+.logo{
+  height: 50px;
+}
+
+.apresentation_message-signin p, .apresentation_message-signup p{
+  margin-left: 5%;
+  float: left;
+  font-family: king;
+  left: 0;
+  top: 40%;
+  font-size: 64px;
+  position: relative;
+}
+
+.signup_align{
+  margin-left: 15% !important;
+  margin-top: 5%;
+  width: 70% !important;
+  height: 80% !important;
+  margin-bottom: 5%;
+}
+
+.container-login-cadastro{
+  height: 70%;
+  width: 40%;
+  margin-left: 55%;
+  top: 15%;
+  border-radius: 20px;
+}
+
+.errorlist{
+  color: red;
+  font-size: 10px;
+}
+
+.file-field .btn{
+  background-color: rgb(92, 92, 92);
+}
+
+@media screen and (max-width: 450px){
+
+  .container-login-cadastro{
+    width: 80%;
+    margin-left: 10%;
+    top: 200px;
+    height: 70%;
+  }
+
+  .signup_height{
+    height: 750px;
+  }
+
+  .op-nav-cadastro{
+    width: 100px;
+  }
+
+  .apresentation_message-signin p, .apresentation_message-signup p{
+    font-size: 25px !important;
+    top: 30px !important;
+    text-align: center;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  footer.page-footer{
+    margin-top: 100px !important;
+  }
+
+  footer.signup_footer{
+    margin-top: 600px !important;
+  }
+
+}
+
+@media screen and (min-width: 451px) and (max-width: 600px) {
+
+  .container-login-cadastro{
+    width: 80%;
+    margin-left: 10%;
+    top: 200px;
+    height: 75%;
+  }
+
+  .signup_height{
+    height: 750px;
+  }
+
+  .op-nav-cadastro{
+    width: 150px;
+  }
+
+  .apresentation_message-signin p, .apresentation_message-signup p{
+    font-size: 30px !important;
+    top: 30px !important;
+    text-align: center;
+    margin-left: 0;
+    width: 100% !important;
+  }
+
+  footer.page-footer{
+    margin-top: 100px !important;
+  }
+
+  footer.signup_footer{
+    margin-top: 600px !important;
+  }
+
+}
+
+@media screen and (min-width: 601px) and (max-width: 734px) {
+
+  .container-login-cadastro{
+    width: 70%;
+    margin-left: 15%;
+    top: 180px;
+    height: 75%;
+  }
+
+  .signup_height{
+    height: 750px;
+  }
+
+  .op-nav-cadastro{
+    width: 150px;
+  }
+
+  .apresentation_message-signin p, .apresentation_message-signup p{
+    font-size: 30px !important;
+    top: 10px;
+    text-align: center;
+    margin-left: 0;
+    width: 100%;
+  }
+
+  footer.page-footer{
+    margin-top: 100px !important;
+  }
+
+  footer.signup_footer{
+    margin-top: 600px !important;
+  }
+
+}
+
+@media screen and (min-width: 735px) and (max-width: 1000px){
+
+  .container-login-cadastro{
+    top: 180px;
+    height: 75%;
+  }
+
+  .signup_height{
+    height: 525px;
+  }
+
+  .op-nav-cadastro{
+    width: 200px;
+  }
+
+  .apresentation_message-signin p, .apresentation_message-signup p{
+    font-size: 40px !important;
+    margin-left: 20;
+    width: 50%;
+    top: 110px;
+  }
+
+  footer.page-footer{
+    margin-top: 100px !important;
+  }
+}
+
+@media screen and (min-width: 1001px){
+  .container-login-cadastro{
+    top: 180px;
+    height: 450px;
+  }
+
+  .signup_height{
+    height: 525px;
+  }
+
+  .op-nav-cadastro{
+    width: 200px;
+  }
+
+  .apresentation_message-signin p, .apresentation_message-signup p{
+    font-size: 50px !important;
+    margin-left: 20;
+    width: 50%;
+    top: 100px;
+  }
+
+  footer.page-footer{
+    margin-top: 100px !important;
+  }
+}

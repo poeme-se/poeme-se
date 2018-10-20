@@ -1,0 +1,102 @@
+{% load staticfiles %}
+{% load material_form %}
+
+{% for poema in poemas %}
+  <div class="col s12 m4 l4">
+    <div class="container-card">
+      <div class="container-top-poem">
+          <img id="img-user-poem" class="circle" src="{{ poema.autor_poema.profile_image.url }}">
+          <a href="{% url 'poemese:perfil' poema.autor_poema_id %}">
+            <span class="name-autor capitalize">
+              {{ poema.autor_poema }}
+            </span>
+          </a>
+          compartilhou este poema
+      </div>
+      <div class="card" id="{{poema.id}}">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator poem-img" style="filter: grayscale(100%)" src="{% static 'poemese/img/leafs.gif' %}">
+        </div>
+        <div class="card-content">
+          <div class="row">
+            <div class="col s8">
+              <span class="card-title activator grey-text text-darken-4 titulo-poema">
+                {{ poema.titulo | safe }}
+              </span>
+            </div>
+            <div class="col s1">
+              <img class="img-buttons-card tooltipped" src="{% static 'poemese/img/zoom.png' %}" data-position="top" data-delay="50" data-tooltip="clique na imagem">
+            </div>
+            {% if request.user == poema.autor_poema %}
+              <div class="col s1">
+                <a href="#" onclick="show_suggestion_modal({{ poema.id }})" id="show-suggest-button" class="btns-card tooltipped" data-position="top" data-delay="50" data-tooltip="Ver sugestões"> <img src="{% static 'poemese/img/suggest_icon.png' %}" class="img-buttons-card"></a>
+              </div>
+              <div class="col s1">
+                <a href="{% url 'poemese:atualizar_poema' poema.id %}" class="btns-card"> <img src="{% static 'poemese/img/edit_poema.png' %}" class="img-buttons-card tooltipped" data-position="top" data-delay="50" data-tooltip="Edite o poema"></a>
+              </div>
+              <div class="col s1">
+                <a href="#" onclick="delete_modal({{poema.id}}, '{{poema.titulo}}')" id="delete-button" class="btns-card"> <img src="{% static 'poemese/img/exclui_poema.png' %}" class="img-buttons-card"></a>
+              </div>
+            {% else %}
+
+            {% endif %}
+          </div>
+        </div>
+        <div class="card-reveal">
+          <div class="row">
+            <div class="col s12">
+              <span class="card-title activator grey-text text-darken-4">
+                <i class="material-icons right">close</i>
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col s12">
+              <span class="card-title activator grey-text text-darken-4">
+                {{ poema.titulo | safe }}
+              </span>
+            </div>
+          </div>
+          <p class="content-poem">{{ poema.conteudo | safe }}</p>
+        </div>
+        <br/>
+        <div>
+          {% if poema.qtd_gostei > 1 %}
+            <p class="number-likes container-options-poem">
+              {{ poema.qtd_gostei }} pessoas aprovaram
+            </p>
+          {% elif poema.qtd_gostei == 1 %}
+            <p class="number-likes container-options-poem">
+              {{ poema.qtd_gostei }} pessoa aprovou
+            </p>
+          {% else %}
+            <p class="number-likes container-options-poem white-border">
+
+            </p>
+          {% endif %}
+        </div>
+        <div class="container-options-poem">
+          <div class="row">
+            <div class="col s4 flow-text msg-option like-btn pointer">
+              <a onclick="toggleLike('{{ user.pseudonimo }}', {{ poema.id }}) " class="btns-card valign-wrapper">
+                <img src="{% static 'poemese/img/black-feather.png' %}" class="center img-buttons-card"> <span>Aprovar</span>
+              </a>
+            </div>
+
+            <div class="col s4 flow-text like-btn msg-option pointer">
+              <a class="btns-card modal-trigger valign-wrapper" onclick="load_comments({{ poema.id }}, '{{ poema.titulo }}')" >
+                <img src="{% static 'poemese/img/comment_poema.png' %}" class="center img-buttons-card"> <span>Comentar</span>
+              </a>
+            </div>
+
+            <div class="col s4 flow-text like-btn msg-option pointer">
+              <a class="btns-card modal-trigger valign-wrapper" onclick="prep_suggestion({{ poema.id }}, '{{ poema.titulo }}')">
+                <img src="{% static 'poemese/img/suggests_poema.png' %}" class=" center img-buttons-card"> <span>Sugerir</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}

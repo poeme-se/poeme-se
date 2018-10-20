@@ -1,0 +1,1145 @@
+@font-face {
+  font-family: 'Material Icons';
+  font-style: normal;
+  font-weight: 400;
+  src: url(iconfont/MaterialIcons-Regular.eot); /* For IE6-8 */
+  src: local('Material Icons'),
+       local('MaterialIcons-Regular'),
+       /* Old file: url(iconfont/MaterialIcons-Regular.woff2) format('woff2'), */
+       /* load new file */
+       url(../font/2fcrYFNaTjcS6g4U3t-Y5ZjZjT5FdEJ140U2DJYC3mY.woff2) format('woff2'),
+       url(iconfont/MaterialIcons-Regular.ttf) format('truetype');
+}
+
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -moz-font-feature-settings: 'liga';
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+    font-family: Freebooter;
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/freebooter-script.regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: Pinyon;
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/PinyonScript-Regular.ttf') format('truetype');
+}
+
+#logo-img{
+  height: 40px;
+  margin-top: 12px;
+}
+
+#img-user{
+  height: 40px;
+  width: 40px;
+  margin-top: 12px;
+  border-radius: 50%;
+}
+
+/* Profile style */
+.info_user_container{
+  background-color: rgba(236, 232, 217, 0.30);
+  position: relative;
+  width: 100%;
+  height: 50px;
+  top: 30px;
+  border-radius: 10px;
+}
+
+.info_user_container span{
+  margin: 30px 30px;
+  font-family: roboto;
+  font-size: 16px;
+  color: white;
+}
+
+
+.profile-img-user{
+  height: 200px;
+  width: 200px;
+  border-radius: 50%;
+}
+
+#btn-follow-unfollow{
+  background-color: transparent;
+  border-radius: 10px;
+  border: 1px solid rgb(233, 237, 246);
+  color: rgb(233, 237, 246);
+  width: 200px;
+  height: 45px;
+  z-index: 10;
+  position: absolute;
+  margin-top: 8%;
+  margin-left: 20%;
+}
+
+#btn-follow-unfollow:hover{
+  background-color: rgb(23, 25, 28);
+  color: white;
+}
+
+.pseudonimo-profile{
+  margin-right: 25% !important;
+}
+/* End profile style*/
+
+#img-user-poem{
+  height: 45px;
+  width: 45px;
+  vertical-align: middle;
+}
+
+#name-user{
+  font-family: 'Freebooter';
+  font-size: 30px;
+  position: absolute;
+  margin-bottom: 20%;
+  margin-left: 20px;
+  color: black;
+}
+
+#tab_content{
+  position: absolute !important;
+  width: 100%;
+}
+
+#img-solicitation{
+  height: 24px;
+  margin-top: 50%;
+  width: 36px;
+}
+
+#create-poem{
+  position: fixed;
+  border-radius: 10px;
+  width: 20%;
+  height: 40px;
+  top: 10px;
+  margin-left: 20px;
+  background-color: rgba(60, 56, 56, 0.3);
+  font-family: "Pinyon";
+  font-size: 30px;
+  text-transform: capitalize;
+}
+
+.fixed-action-btn{
+  top: 70px;
+  left: 5px;
+}
+
+.fr-inline .fr-view{
+  background-color: white !important;
+  height: auto;
+  border: 1px solid grey;
+  border-radius: 5px;
+  color: black;
+
+  line-height:15px;
+  vertical-align: middle;
+  padding-bottom:10px;
+}
+
+form p:last-child {
+    text-align: center;
+}
+
+.container-profile-top{
+  margin-top: 75px;
+}
+/* Conquers style */
+.conquers-container { background-color: rgba(192, 192, 192, 0.70); border-radius: 20px; }
+.conquers-container img{ filter:grayscale(100%);}
+.conquers-container:hover{ background-color: rgba(192, 192, 192, 0.90); }
+
+.description_level{ font-family: Pinyon; color: rgb(52, 53, 55); font-size: 70px; }
+.aprovation_text_conquer { font-size: 20px; font-family: roboto; color: rgb(52, 53, 55); right: 50px; position: absolute; }
+/* End of Conquers style */
+
+/* Init Search Field*/
+.container-search{
+  height: 50px;
+  width: 80%;
+}
+.row .input-field #search, #search_work_field, #search_friends_field{
+  height: 40px;
+  width: 80%;
+  border-radius: 5px;
+  border: 1px solid #827c7c;
+  transition: 0.4s ease;
+  background-color: rgb(250, 250, 250);
+}
+
+.btn-search{
+  height: 42px;
+  width: 120px;
+  border-radius: 5px;
+  background-color: rgb(196, 197, 203);
+  margin-top: 15px;
+  z-index: 5;
+  transition: 0.4s ease;
+}
+.btn-search:hover {background-color: rgb(157, 160, 171);}
+.btn-search i{margin-top: 8px;}
+/* End Search Field*/
+
+/* Init group */
+.grouplist-card{
+  background-color: rgba(157, 157, 158, 0.8);
+}
+.card-title-grupo{
+  font-size: 25px;
+  margin-left: 5% !important;
+  color: rgb(230, 230, 230);
+}
+.card-title-grupo:hover{
+  color: rgb(255, 255, 255);
+  text-decoration: underline;
+}
+.circle{
+  border-radius: 50% !important;
+}
+.pointer{
+  cursor: pointer;
+}
+.img-admin-grupo{
+  width: 120px;
+  height: 120px;
+}
+.title-group-list{
+  height: 64px;
+}
+.content-group-list{
+  background: url("../img/back-group.jpg");
+}
+.name-admin-group{
+  font-family: Pinyon;
+  color: white !important;
+  font-size: 30px;
+  font-weight: bolder;
+  background-color: rgba(62, 62, 62, 0.79);
+  text-align: center;
+}
+.card-footer-group{
+  bottom: 0;
+  height: 60px;
+  font-size: 16px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+/* End group */
+
+/* Init friendlist */
+.title_follow_container{
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  background-color: rgba(70, 69, 64, 0.72);
+  color: white;
+  border-radius: 5px;
+  padding-left: 30px;
+}
+#load_more_followers_btn, #load_more_following_btn{
+  position: absolute;
+  right: 30px;
+}
+.view-more{
+  height: 60px;
+}
+.container-friend{
+  border-radius: 5px;
+  border: 1px solid rgba(71, 58, 70, 0.40);
+  height: 100px;
+  margin-bottom: 20px;
+}
+.container-friend:hover{
+  border: 1px solid rgba(71, 58, 70, 0.50);
+  box-shadow: 1px 1px 1px 1px gray;
+}
+.img-friend{
+  width: 80px;
+  height: 80px;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+.name-friend{
+  font-family: Pinyon;
+  font-size: 25px;
+  font-weight: 600;
+  color: rgba(74, 72, 70, 0.81);
+  margin-top: 10px;
+}
+.col.s8.container-friend-name{
+  height: 100px !important;
+}
+/* End frienlist */
+
+/* init booklist */
+.container-book{
+  height: 200px;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+.container-book:hover {box-shadow: 1px 1px 1px 1px gray; cursor:pointer;}
+.container-book img{
+  width: 100%;
+  height: 120px;
+  border-radius: 5px;
+  margin-top: 40px;
+}
+.container-cover-book {background-color: rgba(87, 91, 101, 0.8); height: 198px;}
+.container-resume {
+  background-color: rgba(184, 186, 194, 0.4);
+  height: 160px;
+  max-width: 120ch;
+  padding-bottom: 5px !important;
+  overflow-y: scroll;
+  text-align: justify;
+}
+.container-title {height: 38px; font-weight: bold;}
+.container-book .col.s8 {padding: 0px !important;}
+.container-booklist{margin-top: 20px;}
+#add-book-modal { overflow-y: hidden;}
+#save-book, #cancel-save-book{
+  width: 35%;
+  margin-left: 5%;
+  margin-right: 5%;
+  position: absolute;
+  margin-top: 5%;
+}
+.container-book-btn {height: 120px}
+#id_capa_livro_container .btn{ background-color: rgb(192, 192, 192); }
+#save-book{ background-color: rgba(55, 207, 61, 0.62); }
+#save-book:hover{ background-color: rgba(55, 207, 61, 0.92); }
+#cancel-save-book{ background-color: rgba(221, 24, 24, 0.62); }
+#cancel-save-book:hover{ background-color: rgba(221, 24, 24, 0.92); }
+/* end booklist */
+
+/* CSS Notifications */
+#notification_li{position:relative}
+#notificationContainer {
+  background-color: #fff;
+  border: 1px solid rgba(100, 100, 100, .4);
+  -webkit-box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+  overflow: visible;
+  position: absolute;
+  top: 75px;
+  margin-left: -170px;
+  width: 280px;
+  z-index: -1;
+  display: none;
+}
+#notificationContainer:before {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 0;
+  height: 0;
+  color: transparent;
+  border: 10px solid black;
+  border-color: transparent transparent white;
+  margin-top: -20px;
+  margin-left: 185px;
+}
+#notificationTitle {
+  font-family: roboto;
+  z-index: 10000;
+  font-weight: bold;
+  padding: 8px;
+  font-size: 14px;
+  background-color: #ffffff;
+  width: 278px;
+  border-bottom: 1px solid #dddddd;
+  color:#333333;
+  text-decoration:none;
+  height: 60px;
+}
+#notificationsBody {
+  padding: 33px 0px 0px 0px !important;
+  min-height:300px;
+  height: 400px;
+  overflow: auto;
+}
+#notificationFooter {
+  background-color: #e9eaed;
+  text-align: center;
+  font-weight: bold;
+  padding: 8px;
+  font-size: 12px;
+  border-top: 1px solid #dddddd;
+  height: 60px;
+}
+#notificationFooter a{
+  height: 40px;
+}
+#notification_count {
+  padding: 4px;
+  background: #cc0000;
+  color: #ffffff;
+  font-weight: bold;
+  margin-left: 30px;
+  border-radius: 12px;
+  position: absolute;
+  margin-top: -12px;
+  font-size: 12px;
+  height: 50px;
+}
+#notif_instance_container{
+  width: 100%;
+  height: 100px;
+  background-color: rgb(192, 192, 192);
+  margin-top: 10px;
+}
+/* End of Notifications */
+
+/* init Comments */
+.modal#comment-modal {
+  background-color: rgb(217, 217, 217) !important;
+  height: 700px;
+}
+#id-poem, #id-poem-suggestion{
+  font-family: roboto;
+  font-size: 14px;
+  font-weight: bold;
+}
+#comment-modal .modal-content{
+  height: 250px;
+}
+#comment-modal{
+  overflow-y: hidden;
+}
+#send-icon-comment{
+  filter: grayscale(100%);
+}
+.modal-footer textarea{
+  resize: none;
+  border-radius: 5px;
+}
+
+.comments-container, .comments-container-green{
+  margin-top: 5px;
+  background-color: rgb(193, 194, 198);
+  border-radius: 5px;
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+.comments-container:before{
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid rgb(193, 194, 198);
+
+  left: -20px;
+}
+.comments-container-green:before{
+  content: "";
+  width: 0;
+  height: 0;
+  position: absolute;
+
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 20px solid #A5D6A7;
+
+  right: -20px;
+  left: 97%;
+}
+
+.author-comment-name{
+  font-weight: bold;
+  color: rgba(1, 1, 9, 0.9);
+  text-transform: capitalize;
+}
+.like-comment-btn i{
+ color: rgba(1, 1, 9, 0.9);
+ font-size: 16px;
+ cursor: pointer;
+}
+.like-comment-btn:hover i{
+ color: rgb(63, 194, 0);
+}
+.comment-author-img img{
+width: 50px;
+height: 50px;
+border-radius: 5px;
+margin-top: 5px;
+}
+.comment-content {
+width: 95%;
+}
+/* End Comments*/
+
+/* Init Suggestions */
+.modal#suggest-modal {
+  height: auto;
+  width: 35%;
+  overflow-y: hidden;
+}
+#suggest_content {
+  width: 420px;
+  resize: none;
+  min-height:100px;
+}
+#send_suggestion{ background-color: rgba(7, 245, 39, 0.64); }
+#send_suggestion:hover{ background-color: rgba(7, 245, 39, 0.90); }
+#cancel_suggestion{ background-color: rgba(255, 4, 4, 0.64); }
+#cancel_suggestion:hover{ background-color: rgba(255, 4, 4, 0.90); }
+#send_suggestion, #cancel_suggestion{
+  width: 40% !important;
+  border-radius: 10px;
+  margin: 5%;
+}
+#stars_rate{
+  height: 40px;
+}
+.suggest-show-modal{
+  height: 500px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.suggestion-container{
+  width: 100%;
+  background-color: rgba(192, 192, 192, 0.8);
+  height: auto;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+/* End Suggestions */
+
+.main-menu-item:hover, .main-menu-item > a:hover{
+  background-color: rgb(33, 33, 36) !important;
+}
+
+#create-poem:hover{
+  background-color: #363434;
+}
+
+#create-poem:hover i{
+  color: yellow;
+}
+
+#container-edit-form, #container-create-poem{
+  width: 50%;
+  margin-left: 30%;
+  height: 600px;
+  display: none;
+}
+
+#submit-edit, #submit-create, #btn-cancel-edit, #btn-cancel-create{
+  display: none;
+  width: 100%;
+  margin-top: 5%;
+}
+
+#container_side-menu{
+  width: 20%;
+  margin-top: 40px;
+  margin-left: 20px;
+  background-color: #DBD9D9;
+  height: 400px;
+  border-radius: 5px;
+  border: 1px solid #827c7c;
+  position: fixed;
+}
+
+#input-field{
+  background-color: #F4F4F4;
+}
+
+#nav-mobile li:hover{
+  background-color: #F4F4F4;
+}
+
+#search-mobile{
+  height: 32px;
+  margin-top: 16px;
+  border-radius: 10px;
+  border: 1px solid #827c7c;
+  transition: 0.4s ease;
+}
+
+#delete-msg{
+  font-family: roboto;
+  font-size: 20px;
+}
+
+#sidenav-overlay{
+  z-index: 5 !important;
+}
+
+#msg-new-poem{
+  height: 40px;
+  font-size: 23px;
+}
+
+#cancel-modal-button{
+  background-color: rgba(218, 9, 9, 0.66);
+  color: white;
+  width: 100%;
+  text-transform: capitalize;
+  text-align: center;
+  margin-top: 24px;
+  border-radius: 10px;
+  font-family: consolas;
+}
+
+#delete-modal-button{
+  background-color: rgba(1, 1, 1, 0.66);
+  color: white;
+  width: 100%;
+  text-transform: capitalize;
+  text-align: center;
+  border-radius: 10px;
+  font-family: consolas;
+}
+
+#cancel-modal-button:hover{
+  background-color: rgba(218, 9, 9, 0.90);
+}
+
+#delete-modal-button:hover{
+  background-color: rgba(1, 1, 1, 0.90);
+}
+
+.borders-delete-msg{
+  border-right: 2px solid #bbbbbb;
+  border-bottom: 3px solid #9e9e9e
+}
+
+.edit-form label, .create-form label{
+  font-size: 30px !important;
+  font-family: Freebooter;
+  color: black;
+}
+
+#config-form-container{
+  height: 450px;
+}
+#config-form .row .col{
+  height: 100px;
+}
+#config-form{
+  width: 500px;
+  display: block;
+  margin: auto;
+}
+#id_img_form-profile_image_container .btn{ background-color: rgb(192, 192, 192) }
+
+.bolder-title{
+    font-weight: bolder !important;
+    font-size: 16px !important;
+}
+
+.btns-card{
+  color: rgb(163, 157, 146);
+  width: 25%;
+  margin-left: 4%;
+  transition: 0.5s ease;
+}
+
+.btns-card:hover{
+  color: rgb(89, 86, 79);
+}
+
+.btns-card img{
+  filter: invert(50%);
+}
+
+.btns-card:hover img{
+  filter: invert(20%);
+}
+
+.card{
+  height: 404px;
+  transition: height 0.5s ease !important;
+}
+
+.card-reveal{
+  padding: 20px !important;
+}
+
+.feather{
+  margin: 0 0 5%;
+}
+
+.name-autor{
+  font-size: 18px;
+  font-weight: bolder;
+}
+
+.img-buttons-card{
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.container-card{
+  width: 90% !important;
+  padding: 5% 5% 5%;
+  background-color: #fbf9f9;
+  margin-top: 5%;
+  border-radius: 20px;
+  margin-left: 5%;
+}
+
+.container-card:hover{
+  box-shadow: 2px 2px 2px 2px #888888;
+}
+
+/* Opções do poema */
+.container-options-poem{
+  border: 1px solid rgb(193, 179, 179);
+  padding: 2% 0%;
+  position: absolute;
+  height: 40px;
+  bottom: 0;
+  width: 100%;
+}
+
+.like-btn:hover span{
+  text-decoration: underline;
+  color: rgb(62, 61, 62);
+  font-weight: 400;
+}
+
+.number-likes{
+  color: gray !important;
+  position: absolute;
+  bottom: 30px;
+  border-radius: 5px;
+  margin-left: 10px;
+  padding-left: 2px;
+  padding-right: 30px;
+  width: auto;
+  margin: 15px !important;
+}
+
+.white-border{
+  border-color: white;
+}
+/* Fim do css das opções */
+
+.modal#comment-modal {
+  background-color: rgb(217, 217, 217) !important;
+  height: 700px;
+}
+
+.modal#delete-modal {
+  width: 600px;
+}
+
+.row .input-field i{
+  color: #827c7c !important;
+}
+
+.container-logo{
+  margin-left: 5%;
+  background-color: #827c7c;
+  height: 64px;
+}
+
+body{
+  background-color: #DBD9D9;
+}
+
+.fr-box{
+  width: 100%;
+}
+
+/* Links do menu lateral*/
+.link{
+  width: 90%;
+  margin-left: 5%;
+  height: 30px;
+  border-radius: 10px;
+  margin-top: 12.5%;
+  padding-top: 2px;
+  transition: 0.2s ease;
+}
+
+.link a i{
+  transition: 0.2s ease;
+}
+
+.link:hover{
+  background-color: #F4F4F4;
+  color: rgb(46, 46, 46) !important;
+  cursor: pointer;
+}
+
+.link:hover a, .link:hover a i{
+  color: rgb(46, 46, 46) !important;
+}
+
+.link a{
+  margin-left: 20%;
+  color: rgb(92, 92, 92);
+}
+
+.nav-wrapper{
+  background-color: #F4F4F4;
+}
+
+.poem-img{
+    width: 80% !important;
+    height: 200px;
+    margin-left: 10%;
+}
+
+nav.nav-extended{
+    background-color: #F4F4F4;
+    border-radius: 5px;
+}
+
+.checkbox-field label {
+  font-size: 14px;
+  color: #fff;
+}
+
+.solicitations-triangle-popup{
+  right: 70px;
+}
+
+.capitalize{
+  text-transform: capitalize;
+}
+
+.share-button{
+  background-color: #827c7c;
+  border-radius: 20px;
+}
+.share-button:hover{
+  background-color: #333030;
+}
+.cancel-button-insert, #confirm-edit-profile, #cancel-edit-profile{
+  background-color: rgb(154, 154, 154);
+  border-radius: 20px;
+}
+.cancel-button-insert:hover, #confirm-edit-profile:hover, #cancel-edit-profile:hover{
+  background-color: rgb(97, 97, 97);
+}
+
+.btns-card span{
+  font-size: 14px !important;
+}
+
+@media screen and (max-width: 450px){
+
+  #profile-img-user{
+    height: 110px;
+    width: 110px;
+  }
+
+  .pseudonimo-profile{
+    font-size: 50px;
+  }
+
+  .position-poems{
+    margin-left: 0;
+    margin-top: 75px;
+  }
+
+  .msg-option{
+    font-size: 12px;
+  }
+
+  #create-poem{
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    top: 80% !important;
+    left: 65%;
+    z-index: 9999;
+  }
+
+  #msg-new-poem{
+    display: none !important;
+  }
+
+  #img-new-poem{
+    display: block !important;
+    filter:invert(100%);
+    width: 30px;
+    height: 30px;
+    margin-top: 20px;
+  }
+
+  #container-edit-form{
+    width: 90% !important;
+    margin-left: 5%;
+  }
+
+  .container-logo{
+    background-color: #F4F4F4;
+  }
+
+  .nav-wrapper{
+    height: 64px !important;
+  }
+
+}
+
+@media screen and (min-width: 601px){
+  .row .col.m6 {
+      width: 100% !important;
+  }
+
+}
+
+@media screen and (min-width: 451px) and (max-width: 620px) {
+
+  #profile-img-user{
+    height: 140px;
+    width: 140px;
+  }
+
+  .pseudonimo-profile{
+    font-size: 60px;
+  }
+
+  .position-poems{
+    margin-left: 0;
+    margin-top: 75px;
+  }
+
+  #create-poem{
+    width: 100px;
+    height: 100px;
+    border-radius: 45%;
+    top: 75% !important;
+    left: 70%;
+    z-index: 9999;
+  }
+
+  #msg-new-poem{
+    display: none !important;
+  }
+
+  #img-new-poem{
+    display: block !important;
+    filter:invert(100%);
+    width: 35px;
+    height: 35px;
+    margin-top: 30px;
+  }
+
+  .container-edit-form{
+    width: 90%;
+    margin-left: 5%;
+  }
+
+  #container-edit-form{
+    width: 90% !important;
+    margin-left: 5%;
+  }
+
+  .container-logo{
+    background-color: #F4F4F4;
+  }
+
+  .position-poems .container-card{
+    width: 80% !important;
+    margin-left: 10%;
+  }
+
+  .nav-wrapper{
+    height: 64px !important;
+  }
+}
+
+@media screen and (min-width: 620px) and (max-width: 734px){
+
+  #profile-img-user{
+    height: 160px;
+    width: 160px;
+  }
+
+  .pseudonimo-profile{
+    font-size: 70px;
+  }
+
+  .position-poems{
+    margin-left: 0;
+    margin-top: 75px;
+  }
+
+  #create-poem{
+    width: 110px;
+    height: 110px;
+    border-radius: 45%;
+    top: 75% !important;
+    left: 70%;
+    z-index: 9999;
+  }
+
+  #msg-new-poem{
+    display: none !important;
+  }
+
+  #img-new-poem{
+    display: block !important;
+    filter:invert(100%);
+    width: 50px;
+    height: 50px;
+    margin-top: 35px;
+  }
+
+  .container-card{
+    width: 70% !important;
+    margin-left: 15%;
+  }
+
+  .container-logo{
+    background-color: #F4F4F4;
+  }
+
+  .nav-wrapper{
+    height: 64px !important;
+  }
+
+}
+
+@media screen and (min-width: 735px) and (max-width: 992px){
+
+  #profile-img-user{
+    height: 200px;
+    width: 200px;
+  }
+
+  .pseudonimo-profile{
+    font-size: 80px;
+  }
+
+  .row .col.m6 {
+      width: 50% !important;
+  }
+
+  .position-poems{
+    margin-left: 0;
+    margin-top: 75px;
+  }
+
+  #create-poem{
+    width: 120px;
+    height: 120px;
+    border-radius: 45%;
+    top: 80% !important;
+    left: 75%;
+    z-index: 9999;
+  }
+
+  #msg-new-poem{
+    display: none !important;
+  }
+
+  #img-new-poem{
+    display: block !important;
+    filter:invert(100%);
+    width: 60px;
+    height: 60px;
+    margin-top: 30px;
+  }
+
+  .container-card{
+    width: 100% !important;
+    margin-left: 0;
+  }
+
+  .container-logo{
+    background-color: #F4F4F4;
+  }
+
+  .nav-wrapper{
+    height: 64px !important;
+  }
+}
+
+@media screen and (min-width: 993px) and (max-width: 1100px){
+
+  #profile-img-user{
+    height: 200px;
+    width: 200px;
+  }
+
+  .pseudonimo-profile{
+    font-size: 80px;
+  }
+
+  .row .col.m6 {
+      width: 50% !important;
+  }
+
+  .msg-option{
+    font-size: 1em;
+  }
+
+  .position-poems{
+    margin-top: 75px;
+  }
+
+  .brand-logo{
+    float: left !important;
+    position: relative !important;
+  }
+
+  #container_side-menu{
+    width: 25%;
+  }
+
+  #create-poem{
+    width: 25%;
+  }
+}
+
+@media screen and (min-width: 1101px){
+
+  #profile-img-user{
+    height: 200px;
+    width: 200px;
+  }
+
+  .pseudonimo-profile{
+    font-size: 80px;
+  }
+
+  .row .col.m6 {
+      width: 50% !important;
+  }
+
+  .position-poems{
+    margin-top: 75px;
+    z-index: 10000;
+  }
+
+  .brand-logo{
+    float: left !important;
+    position: relative !important;
+  }
+
+  #container_side-menu{
+    width: 20%;
+    height: 420px;
+  }
+}

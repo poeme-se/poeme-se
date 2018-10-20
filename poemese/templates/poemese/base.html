@@ -1,0 +1,45 @@
+{% load material_form %}
+{% load staticfiles %}
+<!DOCTYPE html>
+<html style="height: 100%;">
+  <head>
+    <meta charset="utf-8">
+    <link rel=icon href="{% static 'poemese/img/black-feather.png' %}" sizes="16x16" type="image/png">
+
+    <title>{{ title | capfirst}} | Poeme-se</title>
+    {% include 'material/includes/material_css.html' %}
+
+    <!-- CSS's do froala editor -->
+    <link rel="stylesheet" href="{% static 'poemese/css/font-awesome.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'poemese/css/codemirror.min.css' %}"/>
+    <link href="{% static 'poemese/css/froala_editor.pkgd.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static 'poemese/css/froala_style.min.css' %}" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="{% static 'poemese/css/jquery.mCustomScrollbar.min.css' %}" />
+
+    <!-- Main CSS -->
+    <link href="{% static 'poemese/css/poetryline.css' %}" rel="stylesheet" type="text/css" />
+
+    <link href="{% static 'poemese/css/jquery.rateyo.css' %}" rel="stylesheet" type="text/css" />
+
+    <meta name="viewport" content="width=device-width" />
+  </head>
+  <body style="height: 100%;">
+
+    <script src="{% static 'poemese/js/jquery-2.1.1.js' %}"></script>
+    <script src="{% static 'poemese/js/jquery.particleground.min.js' %}"></script>
+
+    <!-- Scripts do froala editor -->
+    <script type="text/javascript" src="{% static 'poemese/js/codemirror.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'poemese/js/xml.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'poemese/js/froala_editor.pkgd.min.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'poemese/js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+
+    <!-- Scripts do rateYo -->
+    <script type="text/javascript" src="{% static 'poemese/js/jquery.rateyo.js' %}"></script>
+
+    {% block content %}{% endblock %}
+    {% include 'material/includes/material_js.html' %}
+  </body>
+</html>

@@ -1,0 +1,20 @@
+{% load staticfiles %}
+{% load material_form %}
+
+{% for livro in object_list %}
+  <div class="col s4 push-s2">
+    <div class="row container-book">
+      <div class="col s4 container-cover-book">
+        <img src="/media/{{ livro.capa_livro }}">
+      </div>
+      <div class="col s8">
+        <div class="col s12 container-title valign-wrapper">
+          <p class="truncate">{{ livro.titulo_book }}</p>
+        </div>
+        <div class="col s12 container-resume">
+            {{ livro.resumo }}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endfor %}

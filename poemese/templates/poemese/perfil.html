@@ -1,0 +1,231 @@
+{% extends "poemese/base.html" %}
+{% load material_form %}
+{% load staticfiles %}
+{% block content %}
+<script src="{% static 'poemese/js/jquery.simple-text-rotator.js' %}" charset="utf-8"></script>
+<script src="{% static 'poemese/js/poetryline.js' %}"></script>
+<link href="{% static 'poemese/css/poetryline.css' %}" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'poemese/css/simpletextrotator.css' %}">
+{% include "poemese/nav.html" %}
+<div style="height:10%"></div>
+<div class="row">
+  <div class="card" style="background:#827c7c">
+    <div class="card-content">
+      <div class="row valign-wrapper">
+        <div class="col s5">
+          <img class="profile-img-user" src="{{ profile_user.profile_image.url }}"/>
+        </div>
+        {% if request.user != profile_user %}
+          <button id="btn-follow-unfollow" onclick="follow_profile('{{ profile_user.pseudonimo }}', '{{ request.user.pseudonimo }}')">
+            {% if test_if_follow == 1 %}
+              SEGUINDO
+            {% elif test_if_follow == 0 %}
+              SEGUIR
+            {% endif %}
+          </button>
+        {% endif %}
+        <div class="col s7">
+          <div class="row white-text">
+            <h1><span class="rotate capitalize pseudonimo-profile">{{ profile_user.pseudonimo }}</span></h1>
+          </div>
+        </div>
+      </div>
+      <div class="row info_user_container valign-wrapper">
+        <span>Seguidores: {{ qtd_followed }}</span> <span>Seguindo: {{ qtd_following }}</span>
+      </div>
+    </div>
+    <div class="card-tabs">
+      <ul class="tabs tabs-fixed-width" style="overflow-x: hidden !important;">
+        <li class="tab"><a class="active" href="#sobre">Sobre</a></li>
+        <li class="tab"><a href="#poemas" >Poemas</a></li>
+        <li class="tab"><a href="#premios" onclick="def_conquer({{ profile_user.number_of_likes }})">Prêmios</a></li>
+      </ul>
+    </div>
+    <div class="card-content grey" id="tab_content">
+      <div id="sobre">
+        <span class="capitalize">{{ profile_user.nome_completo}}</span><br>
+        <i class="material-icons white-text">email</i> Email: {{ profile_user.email}}<br>
+        <i class="material-icons white-text">cake</i> Aniversário: {{ profile_user.data_nascimento}}<br>
+      </div>
+      <div id="poemas">
+        {% if user.is_authenticated %}
+        {% for poema in object_list %}
+          <div class="col s12 m4 l4">
+            <div class="container-card">
+              <div class="container-top-poem">
+                  <img id="img-user-poem" class="circle" src="{{ poema.autor_poema.profile_image.url }}">
+                  <a href="{% url 'poemese:perfil' poema.autor_poema_id %}">
+                    <span class="name-autor capitalize">
+                      {{ poema.autor_poema }}
+                    </span>
+                  </a>
+                  compartilhou este poema
+              </div>
+              <div class="card" id="{{poema.id}}">
+                <div class="card-image waves-effect waves-block waves-light">
+                  <img class="activator poem-img" src="{% static 'poemese/img/feather.jpg' %}">
+                </div>
+                <div class="card-content">
+                  <div class="row">
+                    <div class="col s8">
+                      <span class="card-title activator grey-text text-darken-4 titulo-poema">
+                        {{ poema.titulo | safe }}
+                      </span>
+                    </div>
+                    <div class="col s1">
+                      <img class="img-buttons-card tooltipped" src="{% static 'poemese/img/zoom.png' %}" data-position="top" data-delay="50" data-tooltip="clique na imagem">
+                    </div>
+                    {% if request.user == poema.autor_poema %}
+                      <div class="col s1">
+                        <a href="#" onclick="show_suggestion_modal({{ poema.id }})" id="show-suggest-button" class="btns-card tooltipped" data-position="top" data-delay="50" data-tooltip="Ver sugestões"> <img src="{% static 'poemese/img/suggest_icon.png' %}" class="img-buttons-card"></a>
+                      </div>
+                      <div class="col s1">
+                        <a href="{% url 'poemese:atualizar_poema' poema.id %}" class="btns-card"> <img src="{% static 'poemese/img/edit_poema.png' %}" class="img-buttons-card tooltipped" data-position="top" data-delay="50" data-tooltip="Edite o poema"></a>
+                      </div>
+                      <div class="col s1">
+                        <a href="#" onclick="delete_modal({{poema.id}}, '{{poema.titulo}}')" id="delete-button" class="btns-card"> <img src="{% static 'poemese/img/exclui_poema.png' %}" class="img-buttons-card"></a>
+                      </div>
+                    {% else %}
+
+                    {% endif %}
+                  </div>
+                </div>
+                <div class="card-reveal">
+                  <div class="row">
+                    <div class="col s12">
+                      <span class="card-title activator grey-text text-darken-4">
+                        <i class="material-icons right">close</i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col s12">
+                      <span class="card-title activator grey-text text-darken-4">
+                        {{ poema.titulo | safe }}
+                      </span>
+                    </div>
+                  </div>
+                  <p class="content-poem">{{ poema.conteudo | safe }}</p>
+                </div>
+                <br/>
+                <div>
+                  {% if poema.qtd_gostei > 1 %}
+                    <p class="number-likes container-options-poem">
+                      {{ poema.qtd_gostei }} pessoas curtiram
+                    </p>
+                  {% elif poema.qtd_gostei == 1 %}
+                    <p class="number-likes container-options-poem">
+                      {{ poema.qtd_gostei }} pessoa curtiu
+                    </p>
+                  {% else %}
+                    <p class="number-likes container-options-poem white-border">
+
+                    </p>
+                  {% endif %}
+                </div>
+                <div class="container-options-poem">
+                  <div class="row">
+                    <div class="col s4 flow-text msg-option like-btn pointer">
+                      <a onclick="toggleLike('{{ user.pseudonimo }}', {{ poema.id }}) " class="btns-card valign-wrapper">
+                        <img src="{% static 'poemese/img/black-feather.png' %}" class="center img-buttons-card"> <span>Aprovar</span>
+                      </a>
+                    </div>
+
+                    <div class="col s4 flow-text like-btn msg-option pointer">
+                      <a class="btns-card modal-trigger valign-wrapper" onclick="load_comments({{ poema.id }}, '{{ poema.titulo }}')" >
+                        <img src="{% static 'poemese/img/comment_poema.png' %}" class="center img-buttons-card"> <span>Comentar</span>
+                      </a>
+                    </div>
+
+                    <div class="col s4 flow-text like-btn msg-option pointer">
+                      <a class="btns-card modal-trigger valign-wrapper" onclick="prep_suggestion({{ poema.id }}, '{{ poema.titulo }}')">
+                        <img src="{% static 'poemese/img/suggests_poema.png' %}" class=" center img-buttons-card"> <span>Sugerir</span>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+        {% endif %}
+      </div>
+      <div id="premios">
+        <div class="row conquers-container" style="display: none">
+          <img src="{% static 'poemese/img/insignia.png' %}" height="200" width="300" style="vertical-align: middle;"><span class="description_level"></span><span class="aprovation_text_conquer"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="delete-modal" class="modal">
+  <div class="modal-content row">
+    <p style="font-family: Pinyon; font-size: 30px; font-weight: bolder; margin-left: 20px;">Confirmação de Exclusão</p>
+    <div class="divider"></div>
+    <div class="row">
+      <div class="col s12" class="borders-delete-msg">
+        <p id="delete-msg" class="flow-text">Tem certeza que deseja excluir o poema ? <br> Essa ação após efetuada é irreversível.</p>
+      </div>
+    </div>
+    <div class="row valign-wrapper center">
+      <div class="col s12">
+        <button id="delete-modal-button" class="modal-action modal-close waves-effect waves-black btn-flat">Ok</button>
+        <a href="#" id="cancel-modal-button" class="modal-action modal-close waves-effect waves-red btn-flat">Cancelar</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="comment-modal" class="modal modal-fixed-footer">
+  <p style="font-family: Pinyon; font-size: 30px; font-weight: bolder; margin-left: 20px;">Comentários    <span id="id-poem"></span></p>
+  <div class="divider"></div>
+  <div class="modal-content">
+  </div>
+  <div class="modal-footer">
+    <div class="row valign-wrapper">
+      <div class="col s10">
+        <textarea name="name" id="text-new-comment" rows="8" cols="80"></textarea>
+      </div>
+      <div class="col s2">
+        <img width="50" height="50" class="pointer" onclick="add_comment('{{user.pseudonimo}}')" id="send-icon-comment" src="{% static 'poemese/img/send-icon.png' %}"/>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="suggest-modal" class="modal">
+  <p style="font-family: Pinyon; font-size: 30px; font-weight: bolder; margin-left: 20px;">Sugestão <span id="id-poem-suggestion"></span></p>
+  <div class="divider"></div>
+  <div class="modal-content">
+    <div class="row box-suggest-head">
+      <span style="font-weight: bold">Avaliação:</span>
+      <div id="stars_rate" class="rateyo" data-rateyo-rating="3">
+      </div>
+    </div>
+    <div class="row box-suggest-body">
+      <input id="number_of_stars" style="display: none"/> <!-- rating stars -->
+      <textarea id="suggest_content" placeholder="Digite sua sugestão" class="browser-default"></textarea>
+    </div>
+    <div class="class box-suggest-footer valign-wrapper">
+      <button onclick="send_suggestion('{{user.pseudonimo}}')" id="send_suggestion" class="modal-action modal-close waves-effect waves-black btn-flat">Ok</button>
+      <button id="cancel_suggestion" class="modal-action modal-close waves-effect waves-red btn-flat">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<div id="suggest-show-modal" class="modal">
+  <p style="font-family: Pinyon; font-size: 30px; font-weight: bolder; margin-left: 20px;">Sugestões:</p>
+  <div class="divider"></div>
+  <div class="modal-content">
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(".rotate").textrotator({
+    animation: "dissolve", // You can pick the way it animates when rotating through words. Options are dissolve (default), fade, flip, flipUp, flipCube, flipCubeUp and spin.
+    separator: ",", // If you don't want commas to be the separator, you can define a new separator (|, &, * etc.) by yourself using this field.
+    speed: 1000 // How many milliseconds until the next word show.
+  });
+</script>
+{% endblock %}

@@ -1,0 +1,44 @@
+@font-face {
+    font-family: Pinyon;
+    font-style: normal;
+    font-weight: 400;
+    src: url('../fonts/PinyonScript-Regular.ttf') format('truetype');
+}
+
+.nav-wrapper{
+  background-color: #F4F4F4;
+}
+
+.container-msg{
+  font-family: Pinyon;
+  font-size: 45px
+}
+
+.warning-img{
+  width: 150px;
+  height: 150px;
+  margin-top: 5%;
+}
+.msg{
+  width: 80%;
+  margin-left: 10%;
+}
+
+.error-msg{
+  width: 80%;
+  margin-left: 10%;
+  font-weight: bold;
+  font-family: Roboto;
+  font-size: 14px;
+}
+.brand-logo{
+  height: 64px;
+}
+
+#logo-img{
+  height: 64px;
+}
+
+body{
+  background-color: rgb(173, 171, 170)
+}

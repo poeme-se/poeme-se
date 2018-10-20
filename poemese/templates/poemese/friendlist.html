@@ -1,0 +1,58 @@
+{% extends "poemese/base.html" %}
+{% load material_form %}
+{% load staticfiles %}
+{% block content %}
+<script src="{% static 'poemese/js/poetryline.js' %}"></script>
+<link href="{% static 'poemese/css/poetryline.css' %}" rel="stylesheet">
+{% include "poemese/nav.html" %}
+<div class="row position-poems">
+  <div class="row col s8 push-s2">
+    <form id="search_work_form" action="/search_works/" method="get" accept-charset="utf-8">
+      <div class="input-field container-search col s11 push-s1">
+        <input id="search_friends_field" placeholder="Procure pelo nome de amigos (Ex: Gabriel)" type="search" required>
+      </div>
+    </form>
+  </div>
+
+  <div class="row col s8 push-s2 container_principal_follow">
+    <div class="container_followers col s12">
+      <div class="row title_follow_container valign-wrapper">
+        <span>SEGUIDORES</span><button id="load_more_followers_btn" class="btn waves-effect waves-light #9e9e9e grey"><i class="material-icons left">add_circle</i>Carregar mais</button>
+      </div>
+      {% for users in followers %}
+        <div class="col s4">
+          <div class="container-friend">
+            <div class="row">
+              <div class="col s4">
+                <img class="img-friend" src="{{ users.origem.profile_image.url }}" alt="friend_image">
+              </div>
+              <div class="col s8 container-friend-name">
+                <a href="{% url 'poemese:perfil' users.origem.pseudonimo %}" class="name-friend truncate pointer"> {{ users.origem.pseudonimo|capfirst }} </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    <div class="container_following col s12">
+      <div class="row title_follow_container valign-wrapper">
+        <span>SEGUINDO</span> <a id="load_more_following_btn" class="btn waves-effect waves-light #9e9e9e grey"><i class="material-icons left">add_circle</i>Carregar mais</a>
+      </div>
+      {% for users in following %}
+        <div class="col s4">
+          <div class="container-friend">
+            <div class="row">
+              <div class="col s4">
+                <img class="img-friend" src="{{ users.destino.profile_image.url }}" alt="friend_image">
+              </div>
+              <div class="col s8 container-friend-name">
+                <a href="{% url 'poemese:perfil' users.destino.pseudonimo %}" class="name-friend truncate pointer"> {{ users.destino.pseudonimo|capfirst }} </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+{% endblock %}

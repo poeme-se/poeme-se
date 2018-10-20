@@ -1,0 +1,34 @@
+{% extends "poemese/base.html" %}
+{% load material_form %}
+{% load staticfiles %}
+
+{% block content %}
+
+  <link href="{% static 'poemese/css/error404.css' %}" rel="stylesheet">
+
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper">
+        <div class="row">
+          <div class="container-logo col s2">
+            <a href="#" class="brand-logo"><img class="responsive-img" id="logo-img"  src="{% static 'poemese/img/initial.png' %}"></a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+
+  <div class="container-msg flow-text" style="height: 80%; width: 100%">
+    <div class="row">
+      <div class="center">
+        <img class="warning-img" src="{% static 'poemese/img/warning.png' %}" />
+      </div>
+    </div>
+    <p class="center-align msg">A ação executada não pode ser <br> completada no momento</p>
+    <p class="center-align error-msg">Erro 404: Arquivo não encontrado</p>
+    <p class="center-align error-msg">404 Error: File Not Found</p>
+  </div>
+
+
+{% endblock %}

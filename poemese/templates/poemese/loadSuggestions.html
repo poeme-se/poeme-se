@@ -1,0 +1,13 @@
+{% for suggest in suggestions %}
+  <div class="row suggestion-container valign-wrapper">
+    <div class="col s2">
+       <img width="50" height="50" class="circle" src="{{ suggest.id_autor.profile_image.url }}" alt="friend_image">
+    </div>
+    <div class="col s8">
+      {{ suggest.conteudo }}
+    </div>
+    <div class="col s2">
+      <b>Av.: {{ suggest.valor_aprovacao }}/5</b>
+    </div>
+  </div>
+{% endfor %}

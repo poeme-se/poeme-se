@@ -1,0 +1,77 @@
+{% extends "poemese/base.html" %}
+{% load material_form %}
+{% load staticfiles %}
+{% block content %}
+<script src="{% static 'poemese/js/poetryline.js' %}"></script>
+<link href="{% static 'poemese/css/poetryline.css' %}" rel="stylesheet">
+{% include "poemese/nav.html" %}
+
+<div class="divider"></div>
+
+<script>
+  {% if messages %}
+      {% for message in messages %}
+          Materialize.toast('{{ message }}', 2000);
+      {% endfor %}
+  {% endif %}
+</script>
+
+<div class="row position-poems">
+  <div class="row col s8 push-s2">
+    <div class="input-field container-search col s9 push-s1">
+      <input id="search_work_field" placeholder="Procure pelo nome de obras (Ex: Dom Casmurro)" type="search" required>
+    </div>
+    <div class="col s2 valign-wrapper center pointer">
+      <a href="#add-book-modal" class="btn-search modal-trigger"><i class="material-icons black-text">library_add</i></a>
+    </div>
+  </div>
+
+  <div class="row col s8 push-s1">
+    <div class="col s12 container-booklist">
+      {% for livro in object_list %}
+        <div class="col s4 push-s2">
+          <div class="row container-book">
+            <div class="col s4 container-cover-book">
+              <img src="{{ livro.capa_livro.url }}">
+            </div>
+            <div class="col s8">
+              <div class="col s12 container-title valign-wrapper">
+                <p class="truncate">{{ livro.titulo_book }}</p>
+              </div>
+              <div class="col s12 container-resume">
+                  {{ livro.resumo }}
+              </div>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<div id="add-book-modal" class="modal modal-fixed-footer">
+  <p style="font-family: Pinyon; font-size: 30px; font-weight: bolder; margin-left: 20px;">Adicione um livro: </p>
+  <div class="divider"></div>
+  <div class="modal-content">
+    <form id="book_form" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      {% form form=book_form %}
+        {% part form.titulo_book prefix %}<i class="material-icons prefix">perm_identity</i>{% endpart %}
+        {% part form.dataPublicacao prefix %}<i class="material-icons prefix">account_circle</i>{% endpart %}
+        {% part form.nome_autor prefix %}<i class="material-icons prefix">public</i>{% endpart %}
+        {% part form.resumo prefix %}<i class="material-icons prefix">date_range</i>{% endpart %}
+      {% endform %}
+      <div class="row container-book-btn">
+        <div class="col s6">
+          <input type="submit" class="btn" id="save-book" value="Salvar"/>
+        </div>
+        <div class="col s6">
+          <input type="reset" class="btn" id="cancel-save-book" value="Cancelar"/>
+        </div>
+      </div>
+    </form>
+  </div>
+
+</div>
+
+{% endblock %}

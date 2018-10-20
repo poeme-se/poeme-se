@@ -1,0 +1,82 @@
+{% extends "poemese/base.html" %}
+{% load staticfiles %}
+{% load material_form %}
+{% block content %}
+
+<script src="{% static 'poemese/js/sign_in.js' %}"></script>
+<link href="{% static 'poemese/css/sign_in.css' %}" rel="stylesheet">
+
+<div style="height: 100%; width: 100%;" id="plano_animado">
+  <main>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo center"><img class="logo" src="{% static 'poemese/img/initial.png' %}"></a>
+          <ul class="right">
+            <li class="black op-nav-cadastro"><a href="{% url 'poemese:sign_in' %}" class="center">LOGIN</a></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+
+    <div class="apresentation_message-signup">
+      <p>Conecte-se através da escrita</p>
+    </div>
+
+    <div class="white container-login-cadastro signup_height">
+      <div id="container-top-login">
+        <p>Cadastre-se</p>
+      </div>
+      <div id="cadastrar" class="col s12">
+        <form method="POST" id="register-form" enctype="multipart/form-data">
+          <div id="container-cadastro">
+            {% csrf_token %}
+            {% form form=register_form %}
+              {% part form.pseudonimo prefix %}<i class="material-icons prefix">perm_identity</i>{% endpart %}
+              {% part form.nome_completo prefix %}<i class="material-icons prefix">account_circle</i>{% endpart %}
+              {% part form.email prefix %}<i class="material-icons prefix">public</i>{% endpart %}
+              {% part form.data_nascimento prefix %}<i class="material-icons prefix">date_range</i>{% endpart %}
+              {% part form.password1 prefix %}<i class="material-icons prefix">lock</i>{% endpart %}
+              {% part form.password2 prefix %}<i class="material-icons prefix">lock</i>{% endpart %}
+            {% endform %}
+            <input type="hidden" name="form-type" />
+            <input type="submit" value="confirmar" name="_submit" class="btn black form_submit_initial" />
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="success-modal" class="modal">
+      <div class="modal-content">
+        <p id="success-msg-congratulations"> Parabéns! <br> <span id="success-msg"> Poeta, agora você está oficialmente integrado à rede <span> </p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<footer class="page-footer signup_footer">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">Congratulações!</h5>
+        <p class="grey-text text-lighten-4"> Poeta, todo esse sistema foi pensado na sua pessoa.
+          Estamos esperançosos que o excelentíssimo se satisfaça com esse ambiente.
+        </p>
+      </div>
+      <div class="col l12 m12 s12">
+        <h5 class="white-text">Links Principais</h5>
+        <ul>
+          <li><a class="grey-text text-lighten-3" href="#!">Nos retorne seu feedback</a></li>
+          <li><a class="grey-text text-lighten-3" href="#!">Sobre a rede</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-copyright">
+    <div class="container">
+    © 2017 Copyright Poeme-se, All rights reserved.
+    </div>
+  </div>
+</footer>
+
+{% endblock  %}

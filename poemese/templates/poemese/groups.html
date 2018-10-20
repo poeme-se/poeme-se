@@ -1,0 +1,49 @@
+{% extends "poemese/base.html" %}
+{% load material_form %}
+{% load staticfiles %}
+{% block content %}
+<script src="{% static 'poemese/js/poetryline.js' %}"></script>
+<link href="{% static 'poemese/css/poetryline.css' %}" rel="stylesheet">
+{% include "poemese/nav.html" %}
+<div class="row position-poems">
+  {% for grupo in object_list %}
+    <div class="col s4">
+      <div class="card grouplist-card">
+        <div class="row grey valign-wrapper title-group-list">
+          <div class="col s10">
+            <span class="card-title truncate pointer card-title-grupo"> {{ grupo.nome }} </span>
+          </div>
+          <div class="col s2">
+            <i class="material-icons white-text right-align pointer">more_vert</i>
+          </div>
+        </div>
+        <div class="card-content content-group-list">
+          <div class="row valign-wrapper">
+            <div class="col s4">
+              <div class="card-image">
+                <img class="img-admin-grupo circle" src="{% static 'poemese/img/rosa.jpg' %}"/>
+              </div>
+            </div>
+            <div class="col s8">
+              <p class="name-admin-group">Adriana dos Santos</p>
+            </div>
+          </div>
+        </div>
+        <div class="card-footer-group valign-wrapper">
+          <div class="row" style="text-align: left !important;">
+            <div class="col s6">
+              Categorias:
+            </div>
+            <div class="col s6">
+              {{ grupo.categoria }}
+            </div>
+          </div>
+        </div>
+        <div class="card-action">
+          <a href="#" class="btn black waves-effect waves-light"><i class="material-icons left">control_point</i>Participar</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}

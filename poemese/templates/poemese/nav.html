@@ -1,0 +1,146 @@
+{% load material_form %}
+{% load staticfiles %}
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <div class="row">
+
+        <!--Logo of the Nav-->
+        <div class="container-logo col s2 m3" >
+          <a href="{% url 'poemese:poemas' %}" class="brand-logo center valign-wrapper">
+            <img class="responsive-img" id="logo-img"  src="{% static 'poemese/img/initial.png' %}">
+          </a>
+          <a href="#" data-activates="slide-out" class="button-collapse">
+            <i class="material-icons black-text">menu</i>
+          </a>
+        </div>
+
+        <!-- <div class="input-field col s4 m3 push-m1 hide-on-med-and-down">
+          <input id="search" type="search" required>
+          <label for="search"><i class="material-icons">search</i></label>
+        </div> -->
+
+        <!-- Button of create poem -->
+        <a href="{% url 'poemese:novo_poema' %}" class="waves-effect waves-light btn" id="create-poem">
+          <div class="row valign-wrapper hide-on-med-and-down" style="height: 40px;">
+            <div class="col s3">
+              <i class="material-icons">lightbulb_outline</i>
+            </div>
+            <div class="col s9">
+              <span id="msg-new-poem">
+                Novo Poema
+              </span>
+            </div>
+          </div>
+          <img id="img-new-poem" src="{% static 'poemese/img/pena.png' %}" style="display: none"></a>
+
+        <div class="col s6 m6 right">
+
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li>
+              <a href="{% url 'poemese:perfil' request.user %}" style="width: 200px; height: 65px;">
+                <img id="img-user" src="{{ request.user.profile_image.url }}">
+                <span id="name-user" class="capitalize">{{request.user}}</span>
+              </a>
+            </li>
+            <li id="notification_li">
+              <span id="notification_count">3</span>
+              <a href="#" id="notificationLink"><i class="material-icons black-text">language</i></a>
+              <div id="notificationContainer">
+                <div id="notificationTitle">Notifications</div>
+                <div id="notificationsBody" class="notifications">
+                    <div id="notif_instance_container">
+
+                    </div>
+                    <div id="notif_instance_container">
+
+                    </div>
+                    <div id="notif_instance_container">
+
+                    </div>
+                </div>
+                <div id="notificationFooter"><a href="#">See All</a></div>
+              </div>
+            </li>
+            <li id="settings-option" class="option">
+              <a href="{% url 'poemese:deslogar' %}"><i class="material-icons red-text">power_settings_new</i></a>
+            </li>
+          </ul>
+
+          <!-- Side Nav for Mobile -->
+          <ul id="slide-out" class="side-nav">
+            <li class="row">
+              <div class="input-field col s12">
+                <input id="search-mobile" type="search" required>
+                <label for="search-mobile"><i class="material-icons">search</i></label>
+              </div>
+            </li>
+            <div class="divider"></div>
+            <li>
+              <a class="side-mobile waves-effect waves-light sid" href="#">
+                <i class="material-icons left">notifications</i>Notificações
+                <span class="badge red white-text">+4</span>
+              </a>
+            </li>
+            <li>
+              <a class="side-mobile waves-effect waves-light sid" href="{% url 'poemese:config' %}">
+                <i class="material-icons left">settings</i>Configurações
+              </a>
+            </li>
+            <div class="divider"></div>
+            <li>
+              <a class="side-mobile waves-effect waves-light sid" href="{% url 'poemese:perfil' request.user %}">
+                <i class="material-icons left">person</i>Perfil
+              </a>
+            </li>
+            <li>
+              <a class="side-mobile waves-effect waves-light sid" href="{% url 'poemese:followList' request.user %}">
+                <i class="material-icons left">people</i>Lista de Amigos
+              </a>
+            </li>
+            <li>
+              <a class="side-mobile waves-effect waves-light sid" href="{% url 'poemese:poemList' request.user %}">
+                <i class="material-icons left">dashboard</i>Seus Poemas
+              </a>
+            </li>
+            <li>
+              <a class="side-mobile waves-effect waves-light sid" href="{% url 'poemese:groupList' %}">
+                <i class="material-icons left">contacts</i>Grupos
+              </a>
+            </li>
+            <li>
+              <a class="side-mobile waves-effect waves-light sid" href="{% url 'poemese:bookList' %}">
+                <i class="material-icons left">description</i>Obras
+              </a>
+            </li>
+            <div class="divider"></div>
+            <li>
+              <a href="{% url 'poemese:deslogar' %}" class="side-mobile waves-effect waves-light sid red-text">
+                <i class="material-icons left red-text">power_settings_new</i>Sair
+              </a>
+            </li>
+          </ul>
+
+        </div>
+
+      </div>
+    </div>
+  </nav>
+</div>
+
+<div class="divider"></div>
+
+<!--Menu tools -->
+<div class="fixed-action-btn toolbar white-text hide-on-med-and-down">
+  <a class="btn btn-floating btn-large pulse" id="menu" style="background:#827c7c">
+    <i class="large material-icons">menu</i>
+  </a>
+  <ul style="background:#707077">
+    <li class="waves-effect btn grey waves-light main-menu-item"><a href="{% url 'poemese:poemas' %}"><i class="material-icons left">home</i> Poetryline</a></li>
+        <li class="waves-effect btn grey waves-light main-menu-item"><a href="{% url 'poemese:poemList' request.user %}"><i class="material-icons left">dashboard</i> Seus Poemas</a></li>
+    <li class="waves-effect btn grey waves-light main-menu-item"><a href="{% url 'poemese:followList' request.user %}"><i class="material-icons left">people</i> Seguidores</a></li>
+    <li class="waves-effect btn grey waves-light main-menu-item"><a href="{% url 'poemese:groupList' %}"><i class="material-icons left">contacts</i> Grupos</a></li>
+    <li class="waves-effect btn grey waves-light main-menu-item"><a href="{% url 'poemese:bookList' %}"><i class="material-icons left">description</i> Obras</a></li>
+    <li class="waves-effect btn grey waves-light main-menu-item"><a href="{% url 'poemese:config' %}"><i class="material-icons left">settings</i> Configurações</a></li>
+  </ul>
+</div>

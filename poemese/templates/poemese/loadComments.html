@@ -1,0 +1,16 @@
+{% for comment in comments %}
+  {% if request.user == comment.id_autor %}
+    <div class="row #a5d6a7 green lighten-3 comments-container-green">
+  {% else %}
+    <div class="row comments-container">
+  {% endif %}
+      <div class="comment-author-img col s1">
+        <img src="{{ comment.id_autor.profile_image.url }}" alt="friend_image">
+      </div>
+      <div class="col s11">
+        <a href="{% url 'poemese:perfil' comment.id_autor.pseudonimo %}" class="author-comment-name pointer"> {{ comment.id_autor.pseudonimo }} </a>
+        <span class="comment-content"> {{ comment.conteudo }} </span>
+        <br/> <span class="like-comment-btn" class="pointer"><i class="material-icons">thumb_up</i></span>
+      </div>
+    </div> <!-- End of the comment's container -->
+{% endfor %}
