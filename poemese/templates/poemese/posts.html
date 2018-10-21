@@ -15,7 +15,7 @@
       <div class="container-card">
         <div class="container-top-poem">
             <img id="img-user-poem" class="circle" src="{{ poema.autor_poema.profile_image.url }}">
-            <a href="{% url 'poemese:perfil' poema.autor_poema_id %}">
+            <a href="{% url 'poemese:profile' poema.autor_poema_id %}">
               <span class="name-autor capitalize">
                 {{ poema.autor_poema }}
               </span>

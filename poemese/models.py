@@ -64,6 +64,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
     def is_staff(self):
         return self.is_admin
 
+
 class Poema(models.Model):
     autor_poema = models.ForeignKey('poemese.Usuario', on_delete=models.DO_NOTHING)
     titulo = models.TextField()

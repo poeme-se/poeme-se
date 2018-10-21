@@ -38,7 +38,7 @@
 
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li>
-              <a href="{% url 'poemese:perfil' request.user %}" style="width: 200px; height: 65px;">
+              <a href="{% url 'poemese:profile' request.user %}" style="width: 200px; height: 65px;">
                 <img id="img-user" src="{{ request.user.profile_image.url }}">
                 <span id="name-user" class="capitalize">{{request.user}}</span>
               </a>
@@ -63,7 +63,7 @@
               </div>
             </li>
             <li id="settings-option" class="option">
-              <a href="{% url 'poemese:deslogar' %}"><i class="material-icons red-text">power_settings_new</i></a>
+              <a href="{% url 'poemese:sign_out' %}"><i class="material-icons red-text">power_settings_new</i></a>
             </li>
           </ul>
 
@@ -89,7 +89,7 @@
             </li>
             <div class="divider"></div>
             <li>
-              <a class="side-mobile waves-effect waves-light sid" href="{% url 'poemese:perfil' request.user %}">
+              <a class="side-mobile waves-effect waves-light sid" href="{% url 'poemese:profile' request.user %}">
                 <i class="material-icons left">person</i>Perfil
               </a>
             </li>
@@ -115,7 +115,7 @@
             </li>
             <div class="divider"></div>
             <li>
-              <a href="{% url 'poemese:deslogar' %}" class="side-mobile waves-effect waves-light sid red-text">
+              <a href="{% url 'poemese:sign_out' %}" class="side-mobile waves-effect waves-light sid red-text">
                 <i class="material-icons left red-text">power_settings_new</i>Sair
               </a>
             </li>

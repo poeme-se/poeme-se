@@ -27,7 +27,7 @@
                 <img class="img-friend" src="{{ users.origem.profile_image.url }}" alt="friend_image">
               </div>
               <div class="col s8 container-friend-name">
-                <a href="{% url 'poemese:perfil' users.origem.pseudonimo %}" class="name-friend truncate pointer"> {{ users.origem.pseudonimo|capfirst }} </a>
+                <a href="{% url 'poemese:profile' users.origem.pseudonimo %}" class="name-friend truncate pointer"> {{ users.origem.pseudonimo|capfirst }} </a>
               </div>
             </div>
           </div>
@@ -46,7 +46,7 @@
                 <img class="img-friend" src="{{ users.destino.profile_image.url }}" alt="friend_image">
               </div>
               <div class="col s8 container-friend-name">
-                <a href="{% url 'poemese:perfil' users.destino.pseudonimo %}" class="name-friend truncate pointer"> {{ users.destino.pseudonimo|capfirst }} </a>
+                <a href="{% url 'poemese:profile' users.destino.pseudonimo %}" class="name-friend truncate pointer"> {{ users.destino.pseudonimo|capfirst }} </a>
               </div>
             </div>
           </div>

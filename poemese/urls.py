@@ -9,7 +9,7 @@ urlpatterns = [
     # Url's de Login/Logout/Cadastro
     url(r'^signin/$', views.sign_in, name='sign_in'),
     url(r'^signup/$', views.sign_up, name='sign_up'),
-    url(r'^signout/', views.deslogar, name='deslogar'),
+    url(r'^signout/', views.sign_out, name='sign_out'),
 
     # Url's de Poema
     url(r'^$', views.read_poema, name='poemas'),
@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'search_friends/$', views.search_friends_view, name='searchFriends'),
 
     # Url's de Usuário
-    url(r'^perfil/(?P<pseudonimo>[\w-]+)/$', views.perfil, name='perfil'),
+    url(r'^profile/(?P<pseudonimo>[\w-]+)/$', views.profile, name='profile'),
     url(r'^followList/(?P<name>[\w-]+)/$', views.followList, name='followList'),
     url(r'^listaPoemas/(?P<name>[\w-]+)/$', views.poemList, name='poemList'),
     # url(r'^listaGrupos/(?P<name>[\w-]+)/$', views.groupList, name='groupList'),

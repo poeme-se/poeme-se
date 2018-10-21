@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'poemese',
-    'material',
+    'material'
     # 'social_django',
 ]
 
@@ -58,7 +58,7 @@ INSTALLED_APPS = [
 # SOCIAL_AUTH_TWITTER_KEY = 'Fysc4HHvOwbxFvGqr2S2nfHqG'
 # SOCIAL_AUTH_TWITTER_SECRET = 'm0z7fdIBykZdKSUldCf5GSJmHqasKGboqFvnZFQh9jMMLixCt6'
 
-MIDDLEWARE= [
+MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -99,7 +99,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'poemese',
         'USER': 'root',
-        'PASSWORD': '',
+        'PASSWORD': '123456',
         'HOST': 'localhost',   # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
